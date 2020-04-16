@@ -11,7 +11,7 @@
             ],
             "args": [
                 "all",
-                "-j4"
+                "-j3"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/build"
@@ -21,8 +21,22 @@
                 "isDefault": true
             },
             "problemMatcher": [
-                "$gcc"
-            ]
+                {
+                  "source": "gcc",
+                  "owner": "cpptools",
+                  "fileLocation": [
+                    "absolute"
+                  ],
+                  "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                  }
+                }
+              ],
         },
         {
             "label": "make clean",
